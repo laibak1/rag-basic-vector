@@ -29,7 +29,7 @@ load_dotenv()
 DATA_DIR = "data"
 INDEX_DIR = "index"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+LLM_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 CHUNK_SIZE = 120     # words per chunk
 CHUNK_OVERLAP = 30   # words shared between neighbouring chunks
 
