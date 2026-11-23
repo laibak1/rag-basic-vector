@@ -21,7 +21,7 @@ A **Naive (Basic) Retrieval-Augmented Generation** system that answers cybersecu
 | 3. Embed | Each chunk becomes a 384-dimension vector | `sentence-transformers/all-MiniLM-L6-v2` |
 | 4. Index | Vectors stored in a FAISS `IndexFlatIP` (inner product on normalised vectors = cosine similarity) and saved to disk | `faiss-cpu` |
 | 5. Retrieve | The question is embedded and the top-k most similar chunks are returned | FAISS |
-| 6. Generate | Chunks are inserted into a prompt that tells the LLM to answer **only** from the context and cite sources | Groq API (`llama-3.3-70b-versatile`) |
+| 6. Generate | Chunks are inserted into a prompt that tells the LLM to answer **only** from the context and cite sources | Groq API (`openai/gpt-oss-120b`) |
 
 **Strengths:** simple, fast, understands meaning (e.g. "lock my files and ask for money" finds the ransomware document).
 **Limitations:** pure semantic search can miss exact keywords and acronyms; no re-ranking of results.
@@ -109,6 +109,6 @@ os.environ["GROQ_API_KEY"] = userdata.get("GROQ_API_KEY")
     0.71  ransomware.txt#2
     0.58  ransomware.txt#1
     ...
-[6] Answer (llama-3.3-70b-versatile):
+[6] Answer (openai/gpt-oss-120b):
 The most important defence is a reliable backup strategy following the 3-2-1 rule ... [ransomware.txt]
 ```
