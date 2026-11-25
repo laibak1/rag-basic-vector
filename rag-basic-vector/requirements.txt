@@ -1,5 +1,0 @@
-sentence-transformers>=3.0
-faiss-cpu>=1.8
-numpy
-groq>=0.9
-python-dotenv
